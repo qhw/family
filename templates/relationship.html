@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action = "{{url_for('add_relationship')}}" method="POST">
+	成员:<select name="member">
+		{% for member in members %}
+		<option value={{member[0]}}>{{member[1]}}</option>
+		{% endfor %}
+	</select>
+	<p>
+	父亲:<select name="father">
+		{% for man in men %}
+		<option value={{man[0]}}>{{man[1]}}</option>
+		{% endfor %}
+	</select>
+	</p>
+	<p>
+	母亲:<select name="mother">
+		{% for woman in women %}
+		<option value={{woman[0]}}>{{woman[1]}}</option>
+		{% endfor %}
+	</select>
+	</p>
+	<input type="submit" value="确定"/>
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action = "{{url_for('add_entry')}}" method="POST" enctype='multipart/form-data'>
+	名字:<input type="text" name="name"></input>
+	<p>性别:<select name="gender">
+		<option value=0>男</option>
+		<option value=1>女</option>
+	</select></p>
+	<p><input type="file" name=file></p>
+	<p>描述:<textarea cols=40 rows=3 name=description></textarea></p>
+	<input type="submit" value="添加">
+</form>
+
+{% endblock %}

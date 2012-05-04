@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% for relationship in relationships %}
+	{% for members in relationship %}
+		{% for member in members %}
+	<a href="{{url_for('display_userinfo', userid=member[2])}}">
+			<img src="{{url_for('static', filename=member[1])}}"  
+		alt="{{member[0]}}" title="{{member[0]}}" width = '150px'/>
+		{{member[0]}}
+	</a>
+		{% endfor %}
+	{% endfor %}
+	<hr/>
+{% endfor %}
+
+{% endblock %}

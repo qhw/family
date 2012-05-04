@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% for userinfo in usersinfo %}
+	<img src="{{url_for('static', filename=userinfo[1])}}" 
+	alt="{{userinfo[0]}}" title="{{userinfo[0]}}" width='150px' />{{userinfo[0]}}
+	<p>{{userinfo[2]}}</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{url_for('show_relationship')}}" method="POST">
+  <ul class=entries>
+  {% for entry in entries %}
+  <li>
+  <input type="radio" name="userid" value={{entry['userid']}} />
+  <a href="{{url_for('display_userinfo', userid=entry['userid'])}}">
+  	<img src="{{url_for('static', filename=entry['photo_path'])}}"/>{{ entry['name']|safe }}
+  </a>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+
+  <a href="{{url_for('show_add_entry')}}">添加成员</a>
+  <a href="{{url_for('edit_relationship')}}">添加关系</a>
+  <input type="submit" value="显示关系"/>
+  </form>
+{% endblock %}
+
